@@ -208,3 +208,13 @@ namespace CRUDMahasiswaADO1
 
                 MessageBox.Show("Data berhasil dihapus");
 
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
