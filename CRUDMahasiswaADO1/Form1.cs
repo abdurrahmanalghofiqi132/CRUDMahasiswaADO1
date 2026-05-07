@@ -63,3 +63,22 @@ namespace CRUDMahasiswaADO1
 
             return true;
         }
+
+        private void LoadData()
+        {
+            try
+            {
+                dt.Clear();
+
+                string query = "SELECT * FROM mahasiswa";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                da.Fill(dt);
+
+                dataGridView1.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
