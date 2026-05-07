@@ -181,3 +181,13 @@ namespace CRUDMahasiswaADO1
 
                 MessageBox.Show("Data berhasil diupdate");
 
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
