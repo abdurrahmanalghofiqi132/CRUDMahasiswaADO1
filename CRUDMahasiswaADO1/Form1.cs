@@ -93,3 +93,17 @@ namespace CRUDMahasiswaADO1
             comboBox1.SelectedIndex = -1;
             dateTimePicker1.Value = DateTime.Now;
         }
+
+        private void Buka_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+                MessageBox.Show("Koneksi berhasil");
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
