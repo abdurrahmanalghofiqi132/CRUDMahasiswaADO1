@@ -16,4 +16,4 @@ namespace CRUDMahasiswaADO1
         {
             InitializeComponent();
             conn = new MySqlConnection(connString);
-        }
+        } 
