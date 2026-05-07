@@ -16,4 +16,15 @@ namespace CRUDMahasiswaADO1
         {
             InitializeComponent();
             conn = new MySqlConnection(connString);
-        } 
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            comboBox1.Items.Add("Laki-laki");
+            comboBox1.Items.Add("Perempuan");
+
+            textBox1.MaxLength = 11;
+            textBox2.MaxLength = 50;
+            textBox3.MaxLength = 50;
+            textBox4.MaxLength = 30;
+        }
