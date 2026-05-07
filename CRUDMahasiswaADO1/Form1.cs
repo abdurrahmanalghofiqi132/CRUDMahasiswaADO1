@@ -149,5 +149,35 @@ namespace CRUDMahasiswaADO1
                 MessageBox.Show(ex.Message);
                 conn.Close();
             }
-        } 
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (!ValidateInput()) return;
+
+            try
+            {
+                conn.Open();
+
+                string query = @"UPDATE mahasiswa
+                                SET nama=@nama,
+                                    jenis_kelamin=@jk,
+                                    tanggal_lahir=@tgl,
+                                    alamat=@alamat,
+                                    nama_prodi=@prodi
+                                WHERE nim=@nim";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@nim", textBox1.Text);
+                cmd.Parameters.AddWithValue("@nama", textBox2.Text);
+                cmd.Parameters.AddWithValue("@jk", comboBox1.Text);
+                cmd.Parameters.AddWithValue("@tgl", dateTimePicker1.Value.Date);
+                cmd.Parameters.AddWithValue("@alamat", textBox3.Text);
+                cmd.Parameters.AddWithValue("@prodi", textBox4.Text);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                MessageBox.Show("Data berhasil diupdate");
 
