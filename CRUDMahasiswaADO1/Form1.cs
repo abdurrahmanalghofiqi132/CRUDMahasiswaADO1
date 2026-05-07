@@ -248,13 +248,7 @@ namespace CRUDMahasiswaADO1
             {
                 textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["nim"].Value.ToString();
                 textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells["nama"].Value.ToString();
-                comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells["jenis_kelamin"].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(
-                    dataGridView1.Rows[e.RowIndex].Cells["tanggal_lahir"].Value);
-                textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells["alamat"].Value.ToString();
-                textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells["nama_prodi"].Value.ToString();
-            }
-        }
+                
 
         private void label1_Click(object sender, EventArgs e) { }
         private void label2_Click(object sender, EventArgs e) { }
