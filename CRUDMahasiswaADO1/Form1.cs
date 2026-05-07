@@ -218,3 +218,27 @@ namespace CRUDMahasiswaADO1
             }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            ClearForm();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable test = new DataTable();
+
+                string query = "SELECT * FROM mahasiswa WHERE nim = '" + textBox1.Text + "'";
+
+                MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
+                da.Fill(test);
+
+                dataGridView1.DataSource = test;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
