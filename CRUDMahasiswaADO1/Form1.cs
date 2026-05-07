@@ -82,3 +82,14 @@ namespace CRUDMahasiswaADO1
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void ClearForm()
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+
+            comboBox1.SelectedIndex = -1;
+            dateTimePicker1.Value = DateTime.Now;
+        }
