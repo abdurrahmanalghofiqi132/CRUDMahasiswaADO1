@@ -113,3 +113,41 @@ namespace CRUDMahasiswaADO1
             LoadData();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (!ValidateInput()) return;
+
+            try
+            {
+                conn.Open();
+
+                string query = @"INSERT INTO mahasiswa
+                                (nim,nama,jenis_kelamin,tanggal_lahir,alamat,nama_prodi)
+                                VALUES
+                                (@nim,@nama,@jk,@tgl,@alamat,@prodi)";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+
+                cmd.Parameters.AddWithValue("@nim", textBox1.Text);
+                cmd.Parameters.AddWithValue("@nama", textBox2.Text);
+                cmd.Parameters.AddWithValue("@jk", comboBox1.Text);
+                cmd.Parameters.AddWithValue("@tgl", dateTimePicker1.Value.Date);
+                cmd.Parameters.AddWithValue("@alamat", textBox3.Text);
+                cmd.Parameters.AddWithValue("@prodi", textBox4.Text);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                MessageBox.Show("Data berhasil ditambahkan");
+
+                LoadData();
+                ClearForm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                conn.Close();
+            }
+        }
+
