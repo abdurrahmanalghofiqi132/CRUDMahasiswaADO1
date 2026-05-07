@@ -191,3 +191,20 @@ namespace CRUDMahasiswaADO1
             }
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                conn.Open();
+
+                string query = "DELETE FROM mahasiswa WHERE nim=@nim";
+
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@nim", textBox1.Text);
+
+                cmd.ExecuteNonQuery();
+
+                conn.Close();
+
+                MessageBox.Show("Data berhasil dihapus");
+
