@@ -28,3 +28,38 @@ namespace CRUDMahasiswaADO1
             textBox3.MaxLength = 50;
             textBox4.MaxLength = 30;
         }
+
+        private bool ValidateInput()
+        {
+            if (string.IsNullOrWhiteSpace(textBox1.Text) ||
+                textBox1.Text.Length != 11 ||
+                !long.TryParse(textBox1.Text, out _))
+            {
+                MessageBox.Show("NIM harus 11 digit angka");
+                textBox1.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(textBox2.Text) || textBox2.Text.Length > 50)
+            {
+                MessageBox.Show("Nama wajib diisi dan maksimal 50 karakter");
+                textBox2.Focus();
+                return false;
+            }
+
+            if (textBox3.Text.Length > 50)
+            {
+                MessageBox.Show("Alamat maksimal 50 karakter");
+                textBox3.Focus();
+                return false;
+            }
+
+            if (textBox4.Text.Length > 30)
+            {
+                MessageBox.Show("Nama Prodi maksimal 30 karakter");
+                textBox4.Focus();
+                return false;
+            }
+
+            return true;
+        }
